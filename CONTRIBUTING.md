@@ -16,9 +16,9 @@ We use Docker to start all the databases we develop against.
 
 On Linux, execute: `docker compose up`
 
-On Intel Macs: `docker compose up -f docker-compose-mac.yml` 
+On Intel Macs: `docker compose -f docker-compose-mac.yml up` 
 
-On Apple Silicon Macs: `docker compose up -f docker-compose-apple-silicon.yml` 
+On Apple Silicon Macs: `docker compose -f docker-compose-apple-silicon.yml up` 
 
 ### Start platformatic db
 
@@ -36,7 +36,7 @@ pnpm i
 The CLI package is now available at **./node_modules/.bin/platformatic**. Use
 `pnpm link` to use `platformatic` everywhere.
 ```sh
-(cd packages/cli && pnpm link)
+(cd packages/cli && pnpm link --global)
 ```
 
 ### Run dashboard development server
@@ -84,7 +84,7 @@ The procedure to release is simple:
 
 1. Update the version of the root `package.json`
 1. run `./scripts/sync-version.sh`
-1. run `pnpm -r publish`
+1. run `pnpm -r publish --access=public`
 
 ### Creating and merging a PR 
 On the top of the PR description, if this is a fix of a github issue, add:

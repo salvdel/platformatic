@@ -108,7 +108,7 @@ plugins in the `outDir` directory.
 If not specified, the configuration specified will be loaded from
 `platformatic.db.json`, `platformatic.db.yml`, or `platformatic.db.tml` in the current directory.
 You can find more details about the configuration format at:
-https://oss.platformatic.dev/docs/reference/configuration.
+https://oss.platformatic.dev/docs/reference/db/configuration.
 
   
 #### help
@@ -187,7 +187,7 @@ Options:
 If not specified, the configuration specified will be loaded from
 `platformatic.db.json`, `platformatic.db.yml`, or `platformatic.db.tml` in the current directory.
 You can find more details about the configuration format at:
-https://oss.platformatic.dev/docs/reference/configuration.
+https://oss.platformatic.dev/docs/reference/db/configuration.
 
   
 #### schema
@@ -204,7 +204,7 @@ Options:
 If not specified, the configuration specified will be loaded from
 `platformatic.db.json`, `platformatic.db.yml`, or `platformatic.db.tml` in the current directory.
 You can find more details about the configuration format at:
-https://oss.platformatic.dev/docs/reference/configuration.
+https://oss.platformatic.dev/docs/reference/db/configuration.
 
   
 #### seed
@@ -239,7 +239,7 @@ Options:
 If not specified, the configuration specified will be loaded from
 `platformatic.db.json`, `platformatic.db.yml`, or `platformatic.db.tml` in the current directory.
 You can find more details about the configuration format at:
-https://oss.platformatic.dev/docs/reference/configuration.
+https://oss.platformatic.dev/docs/reference/db/configuration.
 
   
 #### start
@@ -282,15 +282,11 @@ By sending the SIGUSR2 signal, the server can be reloaded.
 Options:
 
   -c, --config FILE      Specify a configuration file to use
-  --watch-ignore LIST    Specify a comma separated list of glob patterns to
-                         ignore when watching for changes
-  --allow-to-watch LIST  Specify a comma separated list of glob patterns to
-                         allow when watching for changes. Default is *.js and **/*.js
 
 If not specified, the configuration specified will be loaded from `platformatic.db.json`,
 `platformatic.db.yml`, or `platformatic.db.tml` in the current directory. You can find more details about
 the configuration format at:
-https://oss.platformatic.dev/docs/reference/configuration.
+https://oss.platformatic.dev/docs/reference/db/configuration.
 
   
 #### types
@@ -330,6 +326,6 @@ module.exports = async function (app) {
 If not specified, the configuration specified will be loaded from
 `platformatic.db.json`, `platformatic.db.yml`, or `platformatic.db.tml` in the current directory.
 You can find more details about the configuration format at:
-https://oss.platformatic.dev/docs/reference/configuration.
+https://oss.platformatic.dev/docs/reference/db/configuration.
 
   

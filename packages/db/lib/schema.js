@@ -293,18 +293,19 @@ const authorization = {
 
 const dashboard = {
   $id: 'https://schemas.platformatic.dev/db/dashboard',
-  type: 'object',
-  properties: {
-    enabled: {
-      type: 'boolean'
-    },
-    rootPath: {
-      type: 'boolean',
-      description: 'Whether the dashboard should be served on / path or not.',
-      default: false
+  anyOf: [
+    { type: 'boolean' },
+    {
+      type: 'object',
+      properties: {
+        rootPath: {
+          type: 'boolean',
+          description: 'Whether the dashboard should be served on / path or not.'
+        }
+      },
+      additionalProperties: false
     }
-  },
-  additionalProperties: false
+  ]
 }
 
 const migrations = {
@@ -380,6 +381,49 @@ const typescript = {
   required: ['outDir']
 }
 
+const plugin = {
+  type: 'object',
+  properties: {
+    path: {
+      type: 'string'
+    },
+    stopTimeout: {
+      type: 'integer'
+    },
+    watch: {
+      type: 'boolean'
+    },
+    watchOptions: {
+      type: 'object',
+      properties: {
+        hotReload: {
+          type: 'boolean',
+          default: true
+        },
+        allow: {
+          type: 'array',
+          items: {
+            type: 'string'
+          },
+          minItems: 1,
+          nullable: true,
+          default: null
+        },
+        ignore: {
+          type: 'array',
+          items: {
+            type: 'string'
+          },
+          nullable: true,
+          default: null
+        }
+      },
+      additionalProperties: false
+    }
+  },
+  required: ['path']
+}
+
 const platformaticDBschema = {
   $id: 'https://schemas.platformatic.dev/db',
   type: 'object',
@@ -392,22 +436,7 @@ const platformaticDBschema = {
     metrics,
     types,
     typescript,
-    plugin: {
-      type: 'object',
-      properties: {
-        path: {
-          type: 'string'
-        },
-        stopTimeout: {
-          type: 'integer'
-        },
-        hotReload: {
-          type: 'boolean',
-          default: true
-        }
-      },
-      required: ['path']
-    }
+    plugin
   },
   additionalProperties: false,
   required: ['core', 'server']
